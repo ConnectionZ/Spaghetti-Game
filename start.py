@@ -205,3 +205,5 @@ learned_cooking = []
 
 unlearned_farming = []
 learned_farming = []
+
+a = "test"
