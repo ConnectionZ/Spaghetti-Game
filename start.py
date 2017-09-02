@@ -24,9 +24,9 @@ main_menu()
     #world_generation()
     #character_generation()
     #first_inputs()
-    
+
 #-World Generation-
-    
+
 #Naming
 
 capital_consonants = ['B','C','D','F','G','H','J','K','L','M','N','P','R','S','T','V','W','Y','Z']
@@ -37,7 +37,7 @@ def three_letter_name():
     letter1 = random.choice(capital_consonants)
     letter2 = random.choice(vowels)
     letter3 = random.choice(consonants)
-    return 
+    return
 
 def five_letter_name():
     first_letter = random.choice(capital_consonants)
@@ -47,8 +47,8 @@ def five_letter_name():
     fifth_letter = random.choice(consonants)
     return first_letter + second_letter + third_letter + fourth_letter + fifth_letter
 country_name = five_letter_name()
-    
-def seven_letter_name():    
+
+def seven_letter_name():
     first_letter = random.choice(capital_consonants)
     second_letter = random.choice(vowels)
     third_letter = random.choice(consonants)
@@ -58,9 +58,9 @@ def seven_letter_name():
     seventh_letter = random.choice(consonants)
     return first_letter + second_letter + third_letter + fourth_letter + fifth_letter + sixth_letter + seventh_letter
 capital_name = seven_letter_name()
-    
+
 print('You were born in the country of', country_name + ", whose capital is", capital_name)
-    
+
 #Location Placement and NPC population
 
 city_count = random.randint(2,3)
@@ -68,7 +68,7 @@ village_count = random.randint(7,10)
 dungeon_count = 2
 cave_count = random.randint(3,5)
 
-location_maker():
+def location_maker():
     return [random.randint(0,1000),random.randint(0,1000)]
 
 capital = {'name': capital_name, 'location': location_maker(), 'blacksmiths': {'count': random.randint(3,5)}, 'chefs': {'count': random.randint(3,5)}, 'civilians': {'count': random.randint(100,150)}}
@@ -78,79 +78,28 @@ world_dragon = {'location': location_maker()}
 giant_plant = {'location': location_maker()}
 yggdrasil = {'location': location_maker()}
 
+cities = {}
+for x in range(city_count):
+    cities['city'+str(x)] = {'name': five_letter_name(), 'location': [location_maker()], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
 
-if city_count == 3:
-    city1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
-    city2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
-    city3 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
-else:
-    city1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
-    city2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(2,3)}, 'chefs': {'count': random.randint(2,3)}, 'civilians': {'count': random.randint(40,60)}}
+villages = {}
+for x in range(village_count):
+    villages['village'+str(x)] = {'name': five_letter_name(), 'location': [location_maker()], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count':random.randint(15,20)}}
 
-if village_count == 10:
-    village1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village3 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village4 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village5 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village6 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village7 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village8 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village9 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village10 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-elif village_count == 9:
-    village1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village3 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village4 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village5 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village6 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village7 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village8 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village9 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-elif village_count == 8:
-    village1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village3 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village4 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village5 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village6 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village7 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village8 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-else:
-    village1 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village2 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village3 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village4 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village5 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village6 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-    village7 = {'name': five_letter_name(), 'location': [random.randint(0,1000),random.randint(0,1000)], 'blacksmiths': {'count': random.randint(1,2)}, 'chefs': {'count': random.randint(1,2)}, 'civilians': {'count': random.randint(15,20)}}
-if cave_count == 5:
-    cave1 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave2 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave3 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave4 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave5 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-elif cave_count == 4:
-    cave1 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave2 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave3 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave4 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-else:
-    cave1 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave2 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    cave3 = {'location': [random.randint(0,1000),random.randint(0,1000)], 'level': random.randint(1,100)}
-    
+caves = {}
+for x in range(cave_count):
+    caves['cave'+str(x)] = {'location': [location_maker()], 'level': random.randint(1,100)}
+
 #-Character Generation-
-    
+
 #Social class
-  
+
 social_class_number = random.randint(1,100)
 
-last_name_list = ['Lacerda', 'Nasca', 'Monzac', 'Akiba', 'Wentworth', 'Alix', 'Howells', 'Priest', 'Chang', 'Field-daly', 'Budrene', 'Dininny', 'Kirscht', 'Taborsky', 'Fung', 'Oliva', 'Deland', 'Barcus', 'Vanheeckeren', 
-'Dorfman', 'Genetti', 'Birnbaum', 'Schutjer', 'Shiro', 'Karplus', 'Belisle', 'Branscomb', 'Badot', 'Boothby', 'Kyle', 'Condon', 'Lacy', 'Petrarch', 'Botfield', 'Shynk', 'Lefkopoulou', 'Vidakovic', 'Housum', 'Munter', 
-'Bruzzone', 'Bender', 'Nordstroem', 'Miletus', 'Foladare', 'Pabrezis', 'Hoermann', 'Boehrer', 'Pantilla', 'Phelps', 'Lucretius', 'Byerly', 'Todorovic', 'Brugnara', 'Sutter', 'Fuentes', 'Borsellino', 'Scapini', 'Van allen', 
-'Fitchett', 'Luca', 'Wessling-resnick', 'Bremner', 'Leyman', 'Pilbeam', 'Ferrera', 'Holzgrefe', 'Stevenson', 'Robertson', 'Rowan', 'Urdang', 'Burley', 'Signer', 'Sollors', 'Slive', 'Tolman', 'Keiding', 'Muller', 'Berdiaeff', 
+last_name_list = ['Lacerda', 'Nasca', 'Monzac', 'Akiba', 'Wentworth', 'Alix', 'Howells', 'Priest', 'Chang', 'Field-daly', 'Budrene', 'Dininny', 'Kirscht', 'Taborsky', 'Fung', 'Oliva', 'Deland', 'Barcus', 'Vanheeckeren',
+'Dorfman', 'Genetti', 'Birnbaum', 'Schutjer', 'Shiro', 'Karplus', 'Belisle', 'Branscomb', 'Badot', 'Boothby', 'Kyle', 'Condon', 'Lacy', 'Petrarch', 'Botfield', 'Shynk', 'Lefkopoulou', 'Vidakovic', 'Housum', 'Munter',
+'Bruzzone', 'Bender', 'Nordstroem', 'Miletus', 'Foladare', 'Pabrezis', 'Hoermann', 'Boehrer', 'Pantilla', 'Phelps', 'Lucretius', 'Byerly', 'Todorovic', 'Brugnara', 'Sutter', 'Fuentes', 'Borsellino', 'Scapini', 'Van allen',
+'Fitchett', 'Luca', 'Wessling-resnick', 'Bremner', 'Leyman', 'Pilbeam', 'Ferrera', 'Holzgrefe', 'Stevenson', 'Robertson', 'Rowan', 'Urdang', 'Burley', 'Signer', 'Sollors', 'Slive', 'Tolman', 'Keiding', 'Muller', 'Berdiaeff',
 'Brunet', 'Pories', 'Puche', 'Montessori', 'Southern', 'Reece', 'Gaskill', 'Knuttunen', 'Whately', 'Mackie', 'Comtois', 'Luebke', 'Nicholas', 'Figueredo', 'Arber', 'Renick', 'Mcclean', 'Mcgahan']
 last_name_list_temp = last_name_list
 
